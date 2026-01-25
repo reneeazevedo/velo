@@ -14,7 +14,6 @@ test('deve consultar um pedido aprovado', async ({ page }) => {
   await page.getByRole('textbox', { name: 'Número do Pedido' }).fill('VLO-SUG3M1');
   await page.getByRole('button', { name: 'Buscar Pedido' }).click();
 
-
   // Assert
   await expect(page.getByText('VLO-SUG3M1')).toBeVisible({timeout:15000});
   await expect(page.locator('#root')).toContainText('VLO-SUG3M1');
