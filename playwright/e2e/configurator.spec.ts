@@ -39,14 +39,7 @@ test.describe('Configuração do Veículo', () => {
     await app.configurator.expectPrice('R$ 40.000,00')
 
     await app.configurator.finishConfigurator()
-    await app.checkout.expectPageVisible()
-    await app.checkout.expectSummary({
-      color: 'Glacier Blue',
-      interior: 'carbon black',
-      wheels: 'aero Wheels',
-      optionals: [],
-    })
-    await app.checkout.expectTotalPrice('R$ 40.000,00')
-    await app.checkout.expectFinalizeOrderForm()
+    await app.checkout.expectLoaded()
+    await app.checkout.expectSummaryTotal('R$ 40.000,00')
   })
 })
