@@ -22,11 +22,6 @@ export function createCheckoutActions(page: Page) {
       alerts
     },
 
-    async open() {
-      await page.goto('/order')
-      await expect(page.getByRole('heading', { name: 'Finalizar Pedido' })).toBeVisible()
-    },
-
     async expectLoaded() {
       await expect(page.getByRole('heading', { name: 'Finalizar Pedido' })).toBeVisible()
     },
@@ -57,9 +52,11 @@ export function createCheckoutActions(page: Page) {
     async selectPaymentMethod(method: string) {
       await page.getByRole('button', { name: new RegExp(method, 'i') }).click()
     },
+
     async fillDownPayment(value: string) {
       await page.getByTestId('input-entry-value').fill(value)
     },
+
     async acceptTerms() {
       await terms.check()
     },
@@ -68,9 +65,10 @@ export function createCheckoutActions(page: Page) {
       await page.getByRole('button', { name: 'Confirmar Pedido' }).click()
     },
 
-    async expectOrderStatus(status: string) {
+    async expectResult(status: string) {
       await expect(page).toHaveURL(/\/success/)
       await expect(page.getByRole('heading', { name: status })).toBeVisible()
     }
+
   }
 }

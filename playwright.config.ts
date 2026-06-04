@@ -18,8 +18,8 @@ export default defineConfig({
   timeout: 60_000,
 
   //Tempo máximo para assertions (toBeVisible(), toHaveText()) 5 segundos
-  expect:{
-    timeout:15000 //não vale a pena aumetar o teste pode ficar lento no tempo de execução, vale a pena usar o timeout explicito
+  expect: {
+    timeout: 15000 //não vale a pena aumetar o teste pode ficar lento no tempo de execução, vale a pena usar o timeout explicito
   },
   testDir: './playwright/e2e',
   /* Run tests in files in parallel */
@@ -42,11 +42,11 @@ export default defineConfig({
 
     //Tempo máximo para ações como clik(), fill()
     //Quando o valor é 0, herda o limite do timout geral do teste
-    actionTimeout:5000,
+    actionTimeout: 5000,
 
     //Tempo máximo para navegações como goto(), waitForURL()
     //Quando o valor é 0, herda o limite do timout geral do teste
-    navigationTimeout:10_000,
+    navigationTimeout: 10_000,
 
   },
 
@@ -89,9 +89,9 @@ export default defineConfig({
   ],
 
   /* Run your local dev server before starting the tests */
-  // webServer: {
-  //   command: 'npm run start',
-  //   url: 'http://localhost:3000',
-  //   reuseExistingServer: !process.env.CI,
-  // },
+  webServer: {
+    command: 'yarn dev',
+    url: 'http://localhost:5173',
+    reuseExistingServer: !process.env.CI,
+  },
 });
