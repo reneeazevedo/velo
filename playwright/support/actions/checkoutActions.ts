@@ -22,6 +22,11 @@ export function createCheckoutActions(page: Page) {
       alerts
     },
 
+    async open() {
+      await page.goto('/order')
+      await expect(page.getByRole('heading', { name: 'Finalizar Pedido' })).toBeVisible()
+    },
+
     async expectLoaded() {
       await expect(page.getByRole('heading', { name: 'Finalizar Pedido' })).toBeVisible()
     },
@@ -62,5 +67,10 @@ export function createCheckoutActions(page: Page) {
     async submit() {
       await page.getByRole('button', { name: 'Confirmar Pedido' }).click()
     },
+
+    async expectOrderStatus(status: string) {
+      await expect(page).toHaveURL(/\/success/)
+      await expect(page.getByRole('heading', { name: status })).toBeVisible()
+    }
   }
 }
