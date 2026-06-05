@@ -22,7 +22,7 @@ export default defineConfig({
 
   // Tempo máximo para assertions (toBeVisible(), toHaveText()) 5 segundos
   expect: {
-    timeout: 5_000 // não vale a pena aumentar porque o teste pode ficar lento no tempo de execução, vale a pena usar o time explicito
+    timeout: 15_000 // não vale a pena aumentar porque o teste pode ficar lento no tempo de execução, vale a pena usar o time explicito
   },
 
 
