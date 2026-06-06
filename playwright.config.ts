@@ -40,18 +40,18 @@ export default defineConfig({
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
-    baseURL: 'https://velo-reneeazevedo.vercel.app',
+    baseURL: 'https://velo-fjhr4cai3-renee-azevedo-s-projects.vercel.app',
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on',
 
     // Tempo máximo para ações interativas como click(), fill()
     // Quando o valor é 0, herda o limite do timeout geral do teste
-    actionTimeout: 5_000,
+    actionTimeout: 10_000,
 
     // Tempo máximo para navegações como goto(), waitForURL()
     // Quando o valor é 0, herda o limite do timeout geral do teste
-    navigationTimeout: 10_000
+    navigationTimeout: 20_000
   },
 
   /* Configure projects for major browsers */
