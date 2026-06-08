@@ -78,14 +78,6 @@ jobs:
           --environment=preview \
           --token=$VERCEL_TOKEN \
           --scope=$VERCEL_SCOPE
-      - name: Check downloaded variables
-        run: |
-          echo "==== SUPABASE VARS ===="
-          grep SUPABASE .vercel/.env.preview.local || true
-          echo "==== DATABASE VARS ===="
-          grep DATABASE .vercel/.env.preview.local || true
-          echo "==== TESTES VARS ===="
-          grep TESTE .vercel/.env.preview.local || true
 
       # 6. Build para o Vercel
       - name: Build Vercel
@@ -128,14 +120,6 @@ jobs:
       # 5. Instalação do Chromium
       - name: Install Plawright Browser
         run: yarn playwright install --with-deps chromium
-
-      - name: Pull Vercel Config
-        run: |
-          yarn vercel pull \
-          --yes \
-          --environment=preview \
-          --token=$VERCEL_TOKEN \
-          --scope=$VERCEL_SCOPE
 
       # 6. Execução dos Testes de Regressão
       - name: Debug Deployment URL
